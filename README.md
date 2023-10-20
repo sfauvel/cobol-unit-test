@@ -4,6 +4,32 @@ The goal of the project is to enable isolated unit testing of individual paragra
 
 Please see [the wiki](https://github.com/neopragma/cobol-unit-test/wiki/) for more information.
 
+## Update October 2023
+
+Add a script to run a test in a docker and rerun it when the file is modified.
+```
+. ./cobolTestRun.sh SAMPLE
+```
+
+`cobol.sh` just run the docker to work within it.
+
+`cobolRunTest.sh PROG_TO_RUN` run the docker, launch the test and wait a change to rerun it.
+
+The `envvars` is committed to specify folder to use.
+
+`runTest.sh PROG_TO_RUN` checks variables before running test and add color on result.
+
+`runTestLoop.sh PROG_TO_RUN` run the test and waiting any file change to rerun it automatically.
+
+You could try :
+`cobolRunTest.sh SAMPLE`
+
+The test fails. 
+
+In `src/test/cobol/unit-tests/SAMPLET` file, change `'GOODBYE, CRUEL WORLD!'` by `'SEE YOU LATER, ALLIGATOR!'`.
+
+Save the file and the test should be rerun and it should passed.
+
 ## Update December 2020 
 
 Having ignored this project for some time, I recently learned there were several pull requests that had been languishing for months. Sorry about that! 
